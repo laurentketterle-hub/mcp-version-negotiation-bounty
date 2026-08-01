@@ -25,4 +25,4 @@
 - 容器：`docker.io/library/alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d`
 - 命令：`/benchmark/test.sh`
 - 基准 directory-v1 摘要：`sha256:1050f34be1da511f6825de9c4f21870a289262c1fc67de39533ea0d98e9586e3`
-- 基准提交在本地提交完成后补入
+- 基准提交：`14f0615fc80728920448f921a3ce5e71e4827931`

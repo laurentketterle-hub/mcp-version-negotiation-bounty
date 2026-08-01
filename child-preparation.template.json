@@ -16,7 +16,7 @@
   "benchmark_source": {
     "kind": "github_commit",
     "repository": "aiforuseac4-blockchain/mcp-version-negotiation-bounty",
-    "commit": "<40_HEX_BENCHMARK_COMMIT>",
+    "commit": "14f0615fc80728920448f921a3ce5e71e4827931",
     "subdirectory": "benchmark"
   },
   "runner_manifest": {
