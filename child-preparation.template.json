@@ -1,0 +1,68 @@
+{
+  "network": "base-mainnet",
+  "parent_bounty_contract": "0x15fe9336ddd83f87335d27f39f83750e6f86fcef",
+  "parent_solver": "0x8e61edc567503a7d3b3554c51230f512c4ea7b1e",
+  "intended_child_solver": "<CONFIRMED_CHILD_SOLVER_BASE_ADDRESS>",
+  "title": "Require exact MCP protocol-version membership during initialization fallback",
+  "goal": "Make the MCP version guard accept only whole supported protocol-version tokens for both the client request and the server selection.",
+  "acceptance_criteria": [
+    "A requested and selected 2025-11-25 in the supported list prints exactly 2025-11-25 and exits zero.",
+    "A supported fallback from requested 2025-11-25 to selected 2025-06-18 prints exactly 2025-06-18 and exits zero.",
+    "An unsupported selected 2025-03-26 exits nonzero.",
+    "A substring-only 2025-06-18 match inside 2025-06-18-preview exits nonzero.",
+    "An unsupported requested 2025-03-26 exits nonzero even when selected 2025-06-18 is supported.",
+    "/benchmark/test.sh exits zero in the immutable sandbox."
+  ],
+  "benchmark_source": {
+    "kind": "github_commit",
+    "repository": "aiforuseac4-blockchain/mcp-version-negotiation-bounty",
+    "commit": "<40_HEX_BENCHMARK_COMMIT>",
+    "subdirectory": "benchmark"
+  },
+  "runner_manifest": {
+    "schema_version": "agent-bounties/regression-sandbox-v1",
+    "image": "docker.io/library/alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d",
+    "command": [
+      "/benchmark/test.sh"
+    ],
+    "workdir": "/workspace",
+    "benchmark_digest": "sha256:1050f34be1da511f6825de9c4f21870a289262c1fc67de39533ea0d98e9586e3",
+    "timeout_seconds": 30,
+    "cpu_millis": 500,
+    "memory_bytes": 134217728,
+    "pids_limit": 32,
+    "max_output_bytes": 65536,
+    "tmpfs_bytes": 67108864,
+    "max_source_bytes": 1048576,
+    "max_source_files": 100,
+    "max_benchmark_bytes": 65536,
+    "max_benchmark_files": 10,
+    "platform": "linux/amd64",
+    "test_seed": 1
+  },
+  "evidence_schema": {
+    "type": "object",
+    "properties": {
+      "source_subdirectory": {
+        "type": "string",
+        "const": "solution"
+      },
+      "source_snapshot_digest": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    },
+    "required": [
+      "source_subdirectory",
+      "source_snapshot_digest"
+    ],
+    "additionalProperties": true
+  },
+  "verifier_reward": {
+    "amount": 10000,
+    "currency": "usdc"
+  },
+  "nonce_salt": "issue-648-mcp-version-membership-v1",
+  "source_url": "<PUBLIC_CHILD_ISSUE_URL>",
+  "discovery_source": "github-agent-bounties-648"
+}
