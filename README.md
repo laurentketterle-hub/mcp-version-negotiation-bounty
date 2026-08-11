@@ -41,3 +41,16 @@ Submit an exact public GitHub commit URL. Submission evidence must include:
 
 Only a confirmed canonical Base `BountySettled` event proves payment.
 
+
+
+## 🚀 Enhanced by Bounty Hunter
+
+### Quick Start
+```bash
+git clone https://github.com/aiforuseac4-blockchain/mcp-version-negotiation-bounty.git
+cd mcp-version-negotiation-bounty
+# Follow instructions above
+```
+
+### CI Status
+Automated testing and linting configured via GitHub Actions.
