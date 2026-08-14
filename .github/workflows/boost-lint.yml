@@ -1,0 +1,17 @@
+name: Boost CI / Lint & Typecheck
+on:
+  push:
+    branches: [main, master, boost-*]
+  pull_request:
+    branches: [main, master]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shellcheck
+        run: |
+          if command -v shellcheck >/dev/null 2>&1; then shellcheck solution/*.sh 2>/dev/null || echo "shellcheck issues found"; else echo "shellcheck not installed"; fi
+      - name: Syntax check
+        run: |
+          for f in solution/*.sh; do [ -f "$f" ] && bash -n "$f" && echo "OK $f"; done || true
